@@ -3,11 +3,22 @@
   padding-bottom: 64px;
 }
 
+.perspectiveDecoration {
+  position: fixed;
+  width: 100%;
+  top: 60%;
+  left: 0;
+  bottom: 0;
+  background-color: hsl(195deg, 20%, 86%);
+}
+
 .maxWidthWrapper {
+  position: relative;
 }
 
 .header {
-  padding-bottom: 64px;
+  padding-bottom: 32px;
+  width: 65%;
 }
 
 .title {
@@ -24,7 +35,57 @@
 }
 
 .characterWrapper {
+  position: fixed;
+  top: 15%;
+  left: 60%;
+  bottom: 5%;
+  min-height: 500px;
 }
 
 .controlColumn {
+  width: 50%;
+}
+
+/* Show stacked layout in smaller screens */
+@media only screen and (max-width: 675px) {
+
+  /* Remove decoration */
+  .perspectiveDecoration {
+    display: none;
+  }
+
+  /* Shorten top padding */
+  .characterEditor {
+    padding-top: 64px;
+  }
+
+  /* Expand header to full width */
+  .header {
+    width: 100%;
+  }
+
+  /* Return character to relative position */
+  .characterWrapper {
+    position: relative;
+    top: auto;
+    left: auto;
+    bottom: auto;
+  }
+
+  /*
+    Position controls in front of character
+    Horizontally align controlPanes (additional styles in controlPane.module.css)
+  */
+  .controlColumn {
+    z-index: 1;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    overflow: auto;
+    white-space: nowrap;
+    padding: 22px;
+    margin-left: -22px;
+    margin-right: -22px;
+    margin-bottom: -22px;
+  }
 }
